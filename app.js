@@ -19,6 +19,8 @@ let connectedPeers = [];
 io.on("connection", (socket) => {
   connectedPeers.push(socket.id);
   console.log(`connected peers`, connectedPeers);
+
+  
   socket.on("pre-offer", (data) => {
     console.log("pre-offer-came");
     const { calleePersonalCode, callType } = data;
